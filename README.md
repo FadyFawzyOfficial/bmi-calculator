@@ -1,16 +1,30 @@
-# bmi_calculator
+# BMI Calculator 💪
 
-A new Flutter project.
+## Our Goal
 
-## Getting Started
+BMI Calculator is for learning purpose.
+It's the 9th App which in the 12th Section of The Complete 2021 Flutter Development Bootcamp with Dart Course (On Udemy)
 
-This project is a starting point for a Flutter application.
+The objective of this tutorial is to look at how we can customize Flutter Widgets to achieve our own beautiful user interface designs. If you have a designer on board, no matter how unconventional their designs are, we can create them using Flutter. 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## What you will create
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+We’re going to make a Body Mass Index Calculator inspired by the beautiful designs made by [Ruben Vaalt](https://dribbble.com/shots/4585382-Simple-BMI-Calculator). It will be a multi screen app with simple functionality but full-on custom styling. 
+
+![Finished App](https://github.com/londonappbrewery/Images/blob/master/bmi-calc-demo.gif)
+
+## What you will learn
+
+- How to use Flutter themes to create coherent branding. 
+- How to create multi-page apps using Flutter Routes and Navigator.
+- How to extract and refactor Flutter Widgets with a click of the button. 
+- How to pass functions as parameters and fields.
+- How to use the GestureDetector Widget to detect more than just a tap.
+- How to use custom color palettes by using hex codes.
+- How to customize Flutter Widgets to achieve a specific design style.
+- Understand Dart Enums and the Ternary Operator.
+- Learn about composition vs. inheritance and the Flutter way of creating custom UI.
+- Understand the difference between const and final in Dart and when to use each.
+
+Flutter version: 3.3.3
