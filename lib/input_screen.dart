@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const bottomContainerHeight = 72.0;
+import 'icon_content.dart';
+import 'reusable_card.dart';
+
+const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
-const activeCardColor = Color(0xFF1D1E33);
 
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
@@ -21,8 +24,18 @@ class InputScreenState extends State<InputScreen> {
           Expanded(
             child: Row(
               children: const [
-                ReusableCard(),
-                ReusableCard(),
+                ReusableCard(
+                  child: IconContent(
+                    icon: FontAwesomeIcons.mars,
+                    label: 'MALE',
+                  ),
+                ),
+                ReusableCard(
+                  child: IconContent(
+                    icon: FontAwesomeIcons.venus,
+                    label: 'FEMALE',
+                  ),
+                ),
               ],
             ),
           ),
@@ -41,27 +54,6 @@ class InputScreenState extends State<InputScreen> {
             color: bottomContainerColor,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  final Color color;
-  const ReusableCard({
-    Key? key,
-    this.color = activeCardColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.all(Radius.circular(16)),
-        ),
       ),
     );
   }
