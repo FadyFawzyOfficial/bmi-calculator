@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 72.0;
+const bottomContainerColor = Color(0xFFEB1555);
+const activeCardColor = Color(0xFF1D1E33);
+
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
 
@@ -31,6 +35,11 @@ class InputScreenState extends State<InputScreen> {
               ],
             ),
           ),
+          Container(
+            width: double.infinity,
+            height: bottomContainerHeight,
+            color: bottomContainerColor,
+          ),
         ],
       ),
     );
@@ -41,7 +50,7 @@ class ReusableCard extends StatelessWidget {
   final Color color;
   const ReusableCard({
     Key? key,
-    this.color = const Color(0xFF1D1E33),
+    this.color = activeCardColor,
   }) : super(key: key);
 
   @override
