@@ -15,6 +15,9 @@ class InputScreen extends StatefulWidget {
 }
 
 class InputScreenState extends State<InputScreen> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +26,19 @@ class InputScreenState extends State<InputScreen> {
         children: [
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 ReusableCard(
-                  child: IconContent(
+                  color: maleCardColor,
+                  child: const IconContent(
                     icon: FontAwesomeIcons.mars,
                     label: 'MALE',
                   ),
+                  onPressed: () => updateGenderCardsColor(),
                 ),
                 ReusableCard(
-                  child: IconContent(
+                  color: femaleCardColor,
+                  onPressed: () => updateGenderCardsColor(isMaleCard: false),
+                  child: const IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',
                   ),
@@ -56,5 +63,17 @@ class InputScreenState extends State<InputScreen> {
         ],
       ),
     );
+  }
+
+  void updateGenderCardsColor({bool isMaleCard = true}) {
+    setState(() {
+      if (isMaleCard) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      }
+    });
   }
 }
