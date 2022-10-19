@@ -45,12 +45,12 @@ class InputScreenState extends State<InputScreen> {
                   color: selectedGender == Gender.female
                       ? activeCardColor
                       : inactiveCardColor,
-                  onPressed: () =>
-                      setState(() => selectedGender = Gender.female),
                   child: const IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',
                   ),
+                  onPressed: () =>
+                      setState(() => selectedGender = Gender.female),
                 ),
               ],
             ),
