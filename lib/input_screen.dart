@@ -7,6 +7,11 @@ import 'reusable_card.dart';
 const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 
+enum Gender {
+  male,
+  female,
+}
+
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
 
@@ -33,11 +38,12 @@ class InputScreenState extends State<InputScreen> {
                     icon: FontAwesomeIcons.mars,
                     label: 'MALE',
                   ),
-                  onPressed: () => updateGenderCardsColor(),
+                  onPressed: () => updateGenderCardsColor(gender: Gender.male),
                 ),
                 ReusableCard(
                   color: femaleCardColor,
-                  onPressed: () => updateGenderCardsColor(isMaleCard: false),
+                  onPressed: () =>
+                      updateGenderCardsColor(gender: Gender.female),
                   child: const IconContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',
@@ -65,9 +71,9 @@ class InputScreenState extends State<InputScreen> {
     );
   }
 
-  void updateGenderCardsColor({bool isMaleCard = true}) {
+  void updateGenderCardsColor({required Gender gender}) {
     setState(() {
-      if (isMaleCard) {
+      if (gender == Gender.male) {
         maleCardColor = activeCardColor;
         femaleCardColor = inactiveCardColor;
       } else {
