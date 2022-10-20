@@ -19,6 +19,7 @@ class InputScreen extends StatefulWidget {
 
 class InputScreenState extends State<InputScreen> {
   int height = 180;
+  int weight = 60;
   Gender? selectedGender;
 
   @override
@@ -81,7 +82,7 @@ class InputScreenState extends State<InputScreen> {
                   data: SliderTheme.of(context).copyWith(
                     thumbColor: kFuchsiaColor,
                     activeTrackColor: Colors.white,
-                    inactiveTrackColor: kLightGrey,
+                    inactiveTrackColor: kLightGreyColor,
                     overlayColor: kFuchsiaColor.withAlpha(0x30),
                     thumbShape:
                         const RoundSliderThumbShape(enabledThumbRadius: 16),
@@ -101,9 +102,47 @@ class InputScreenState extends State<InputScreen> {
           ),
           Expanded(
             child: Row(
-              children: const [
-                ReusableCard(),
-                ReusableCard(),
+              children: [
+                ReusableCard(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'WEIGHT',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        '$weight',
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FloatingActionButton(
+                            backgroundColor: kGreyColor,
+                            child: const Icon(
+                              Icons.add_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 16),
+                          FloatingActionButton(
+                            backgroundColor: kGreyColor,
+                            child: const Icon(
+                              Icons.add_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                ReusableCard(
+                  child: Column(),
+                ),
               ],
             ),
           ),

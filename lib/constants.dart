@@ -8,11 +8,12 @@ const kBottomContainerHeight = 80.0;
 const kActiveCardColor = Color(0xFF1D1E33);
 const kInactiveCardColor = Color(0xFF111328);
 const kFuchsiaColor = Color(0xFFEB1555);
-const kLightGrey = Color(0xFF8D8E98);
+const kLightGreyColor = Color(0xFF8D8E98);
+const kGreyColor = Color(0xFF4C4F5E);
 
 // Styles
 const kLabelTextStyle = TextStyle(
-  color: kLightGrey,
+  color: kLightGreyColor,
   fontSize: 18,
 );
 
