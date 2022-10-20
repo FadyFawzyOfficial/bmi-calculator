@@ -77,13 +77,24 @@ class InputScreenState extends State<InputScreen> {
                     ),
                   ],
                 ),
-                Slider(
-                  value: height.toDouble(),
-                  min: 100,
-                  max: 250,
-                  activeColor: kFuchsiaColor,
-                  inactiveColor: kLightGrey,
-                  onChanged: (value) => setState(() => height = value.round()),
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    thumbColor: kFuchsiaColor,
+                    activeTrackColor: Colors.white,
+                    inactiveTrackColor: kLightGrey,
+                    overlayColor: kFuchsiaColor.withAlpha(0x30),
+                    thumbShape:
+                        const RoundSliderThumbShape(enabledThumbRadius: 16),
+                    overlayShape:
+                        const RoundSliderOverlayShape(overlayRadius: 32),
+                  ),
+                  child: Slider(
+                    value: height.toDouble(),
+                    min: 100,
+                    max: 250,
+                    onChanged: (value) =>
+                        setState(() => height = value.round()),
+                  ),
                 )
               ],
             ),
