@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'bottom_button.dart';
-import 'constants.dart';
-import 'reusable_card.dart';
+import '../constants.dart';
+import '../widgets/bottom_button.dart';
+import '../widgets/reusable_card.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key});
