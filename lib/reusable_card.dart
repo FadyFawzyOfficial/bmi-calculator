@@ -1,7 +1,5 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
-
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
 
 class ReusableCard extends StatelessWidget {
   final Color color;
@@ -9,7 +7,7 @@ class ReusableCard extends StatelessWidget {
   final VoidCallback? onPressed;
   const ReusableCard({
     Key? key,
-    this.color = activeCardColor,
+    this.color = kActiveCardColor,
     this.child,
     this.onPressed,
   }) : super(key: key);
