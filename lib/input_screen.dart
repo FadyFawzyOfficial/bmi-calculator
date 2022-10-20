@@ -18,6 +18,7 @@ class InputScreen extends StatefulWidget {
 }
 
 class InputScreenState extends State<InputScreen> {
+  int height = 180;
   Gender? selectedGender;
 
   @override
@@ -65,17 +66,25 @@ class InputScreenState extends State<InputScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
-                  children: const [
+                  children: [
                     Text(
-                      '180',
+                      '$height',
                       style: kNumberTextStyle,
                     ),
-                    Text(
+                    const Text(
                       'cm',
                       style: kLabelTextStyle,
                     ),
                   ],
                 ),
+                Slider(
+                  value: height.toDouble(),
+                  min: 100,
+                  max: 250,
+                  activeColor: kFuchsiaColor,
+                  inactiveColor: kLightGrey,
+                  onChanged: (value) => setState(() => height = value.round()),
+                )
               ],
             ),
           ),
@@ -90,7 +99,7 @@ class InputScreenState extends State<InputScreen> {
           Container(
             width: double.infinity,
             height: kBottomContainerHeight,
-            color: kBottomContainerColor,
+            color: kFuchsiaColor,
           ),
         ],
       ),
