@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../calculator_brain.dart';
 import '../constants.dart';
 import '../widgets/bottom_button.dart';
 import '../widgets/icon_content.dart';
@@ -126,9 +127,23 @@ class InputScreenState extends State<InputScreen> {
               ],
             ),
           ),
-          const BottomButton(
+          BottomButton(
             label: 'CALCULATE',
-            goTo: ResultsScreen(),
+            onPressed: () {
+              final bmiCalculator =
+                  CalculatorBrain(height: height, weight: weight);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(
+                    bmi: bmiCalculator.bmi,
+                    result: bmiCalculator.result,
+                    interpretation: bmiCalculator.interpretation,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

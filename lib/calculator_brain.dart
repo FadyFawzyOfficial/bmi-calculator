@@ -11,7 +11,10 @@ class CalculatorBrain {
     required this.weight,
   });
 
-  String get bmi => (weight / pow(height / 100, 2)).toStringAsFixed(1);
+  String get bmi {
+    _bmi = weight / pow(height / 100, 2);
+    return _bmi.toStringAsFixed(1);
+  }
 
   String get result {
     if (_bmi >= 25) {

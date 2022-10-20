@@ -5,7 +5,16 @@ import '../widgets/bottom_button.dart';
 import '../widgets/reusable_card.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key});
+  final String bmi;
+  final String result;
+  final String interpretation;
+
+  const ResultsScreen({
+    super.key,
+    required this.bmi,
+    required this.result,
+    required this.interpretation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +36,21 @@ class ResultsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
+              children: [
                 Text(
-                  'NORMAL',
+                  result.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: kResultTextStyle,
                 ),
                 Text(
-                  '18.7',
+                  bmi,
                   textAlign: TextAlign.center,
                   style: kBMITextStyle,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Text(
-                    'Your BMI results is quite low, you should eat more!',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
@@ -49,7 +58,10 @@ class ResultsScreen extends StatelessWidget {
               ],
             ),
           ),
-          const BottomButton(label: 'RE-CALCULATE')
+          BottomButton(
+            label: 'RE-CALCULATE',
+            onPressed: () => Navigator.pop(context),
+          )
         ],
       ),
     );

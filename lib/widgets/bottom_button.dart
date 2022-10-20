@@ -4,24 +4,17 @@ import '../constants.dart';
 
 class BottomButton extends StatelessWidget {
   final String label;
-  final Widget? goTo;
+  final VoidCallback onPressed;
   const BottomButton({
     Key? key,
     required this.label,
-    this.goTo,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => goTo != null
-          ? Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => goTo!,
-              ),
-            )
-          : Navigator.pop(context),
+      onTap: onPressed,
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,
