@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'bottom_button.dart';
 import 'constants.dart';
 import 'icon_content.dart';
 import 'results_screen.dart';
@@ -125,24 +126,9 @@ class InputScreenState extends State<InputScreen> {
               ],
             ),
           ),
-          InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ResultsScreen(),
-              ),
-            ),
-            child: Container(
-              alignment: Alignment.center,
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              color: kFuchsiaColor,
-              padding: const EdgeInsets.only(bottom: 16),
-              child: const Text(
-                'CALCULATE',
-                style: kLargeButtonTextStyle,
-              ),
-            ),
+          const BottomButton(
+            label: 'CALCULATE',
+            goTo: ResultsScreen(),
           ),
         ],
       ),
