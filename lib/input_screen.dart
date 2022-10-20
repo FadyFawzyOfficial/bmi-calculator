@@ -53,7 +53,32 @@ class InputScreenState extends State<InputScreen> {
               ],
             ),
           ),
-          const ReusableCard(),
+          ReusableCard(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'HEIGHT',
+                  style: kLabelTextStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: const [
+                    Text(
+                      '180',
+                      style: kNumberTextStyle,
+                    ),
+                    Text(
+                      'cm',
+                      style: kLabelTextStyle,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: Row(
               children: const [
