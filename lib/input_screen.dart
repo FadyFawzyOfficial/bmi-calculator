@@ -137,7 +137,11 @@ class InputScreenState extends State<InputScreen> {
               width: double.infinity,
               height: kBottomContainerHeight,
               color: kFuchsiaColor,
-              child: const Text('CALCULATE'),
+              padding: const EdgeInsets.only(bottom: 16),
+              child: const Text(
+                'CALCULATE',
+                style: kLargeButtonTextStyle,
+              ),
             ),
           ),
         ],
