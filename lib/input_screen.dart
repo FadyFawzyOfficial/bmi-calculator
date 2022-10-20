@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'constants.dart';
 import 'icon_content.dart';
+import 'value_content.dart';
 import 'reusable_card.dart';
 
 enum Gender {
@@ -20,6 +21,7 @@ class InputScreen extends StatefulWidget {
 class InputScreenState extends State<InputScreen> {
   int height = 180;
   int weight = 60;
+  int age = 20;
   Gender? selectedGender;
 
   @override
@@ -104,36 +106,20 @@ class InputScreenState extends State<InputScreen> {
             child: Row(
               children: [
                 ReusableCard(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'WEIGHT',
-                        style: kLabelTextStyle,
-                      ),
-                      Text(
-                        '$weight',
-                        style: kNumberTextStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RoundedIconButton(
-                            icon: FontAwesomeIcons.minus,
-                            onPressed: () => setState(() => weight--),
-                          ),
-                          const SizedBox(width: 16),
-                          RoundedIconButton(
-                            icon: FontAwesomeIcons.plus,
-                            onPressed: () => setState(() => weight++),
-                          ),
-                        ],
-                      )
-                    ],
+                  child: ValueContent(
+                    label: 'WEIGHT',
+                    value: weight,
+                    onMinusPressed: () => setState(() => weight--),
+                    onPlusPressed: () => setState(() => weight++),
                   ),
                 ),
                 ReusableCard(
-                  child: Column(),
+                  child: ValueContent(
+                    label: 'AGE',
+                    value: age,
+                    onMinusPressed: () => setState(() => age--),
+                    onPlusPressed: () => setState(() => age++),
+                  ),
                 ),
               ],
             ),
@@ -145,32 +131,6 @@ class InputScreenState extends State<InputScreen> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundedIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  const RoundedIconButton({
-    super.key,
-    required this.icon,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      elevation: 6,
-      fillColor: kGreyColor,
-      shape: const CircleBorder(),
-      constraints: const BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
-      ),
-      onPressed: onPressed,
-      child: Icon(icon),
     );
   }
 }
