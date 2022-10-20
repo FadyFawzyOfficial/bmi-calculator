@@ -118,22 +118,14 @@ class InputScreenState extends State<InputScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          FloatingActionButton(
-                            backgroundColor: kGreyColor,
-                            child: const Icon(
-                              Icons.add_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () => setState(() => weight--),
                           ),
                           const SizedBox(width: 16),
-                          FloatingActionButton(
-                            backgroundColor: kGreyColor,
-                            child: const Icon(
-                              Icons.add_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
+                          RoundedIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () => setState(() => weight++),
                           ),
                         ],
                       )
@@ -153,6 +145,32 @@ class InputScreenState extends State<InputScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundedIconButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  const RoundedIconButton({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      elevation: 6,
+      fillColor: kGreyColor,
+      shape: const CircleBorder(),
+      constraints: const BoxConstraints.tightFor(
+        width: 56,
+        height: 56,
+      ),
+      onPressed: onPressed,
+      child: Icon(icon),
     );
   }
 }
